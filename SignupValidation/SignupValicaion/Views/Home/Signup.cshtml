@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Signup";
+}
+
+@if (Model != null)
+{
+    <ul>
+        <li>Name: @Model.name</li>
+        <li>UserId: @Model.userid</li>
+        <li>Password: @Model.password</li>
+        <li>Id: @Model.id</li>
+        <li>Email: @Model.email</li>
+        <li>Date: @Model.dob</li>
+
+    </ul>
+}
+
+<h2 class="text-danger">Signup 1</h2>
+@Html.ValidationSummary()
+
+<form action="" method="post">
+    Name : <input type="text" name="name" value="@(Model == null ? "":Model.name)" /><br />
+    <span class="text-danger">@Html.ValidationMessage("name")</span><br />
+
+    User Id : <input type="text" name="userid" value="@(Model == null ? "":Model.userid)" /><br />
+    <span class="text-danger">@Html.ValidationMessage("userid")</span><br />
+
+    Password : <input type="password" name="password" value="@(Model == null ? "":Model.password)" /><br />
+    <span class="text-danger">@Html.ValidationMessage("password")</span><br />
+
+    Id : <input type="text" name="id" value="@(Model == null ? "":Model.id)" /><br />
+    <span class="text-danger">@Html.ValidationMessage("id")</span><br />
+
+    Email : <input type="email" name="email" value="@(Model == null ? "":Model.email)" /><br />
+    <span class="text-danger">@Html.ValidationMessage("email")</span><br />
+
+    Dob : <input type="date" name="dob" value="@(Model == null ? "":Model.dob)" /><br />
+    <span class="text-danger">@Html.ValidationMessage("dob")</span><br />
+
+
+    <input type="submit" value="Submit" />
+</form>
+

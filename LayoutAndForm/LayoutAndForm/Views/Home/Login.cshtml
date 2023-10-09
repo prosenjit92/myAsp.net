@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_OuterLayout.cshtml";
+}
+
+<h2>ANS : </h2>
+
+
+@*
+    @ViewBag.name
+    @ViewBag.id
+    @ViewBag.gender
+    @ViewBag.profession*@
+
+@if(Model != null)
+ {
+    <p>Name : @Model.name </p>
+    <p>ID : @Model.id</p>
+    <p>Gender : @Model.gender</p>
+    <p>Prfession :@Model.profession</p>
+    <p>
+        Hobbies :
+        @if(Model.hobbies != null)
+        {
+        <ul>
+            @foreach (var ia in Model.hobbies)
+            {
+                <li>@ia</li>
+            }
+        </ul>
+
+        }
+    </p>
+ }
+
+<h2>Login</h2>
+
+<form action=" " method="post">
+    <p>Name : <input type="text" Name="name" required></p>
+    <p>ID : <input type="text" Name="id" required></p>
+    <p>Gander :</p>
+    <p>Male <input type="radio" name="gender" value="male" required></p>
+    <p>Female <input type="radio" name="gender" value="Female" required></p>
+
+    <p>
+        Professinon:
+        <select name="profession" id="profession" required>
+            <option value="">--Select a Profession--</option>
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+            <option value="Doctor">Doctor</option>
+        </select>
+    </p>
+    Hobbis: <br />
+    <input type="checkbox" name="hobbies[]" value="Movies" />Movies
+    <input type="checkbox" name="hobbies[]" value="Sports" />Sports<br />
+    <input type="checkbox" name="hobbies[]" value="Singing" />Singing
+    <input type="checkbox" name="hobbies[]" value="Traveling" />traveling
+    <br />
+
+    <input type="submit" name="login" value="Login" class="btn btn-danger" />
+</form>
